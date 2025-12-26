@@ -14,7 +14,7 @@
  * model files in the `model` directory!
  */
 import * as runtime from "@prisma/client/runtime/client";
-import {} from "./class";
+import {} from "./class.js";
 /**
  * Prisma Errors
  */
@@ -68,88 +68,88 @@ export const JsonNull = runtime.JsonNull;
  */
 export const AnyNull = runtime.AnyNull;
 export const ModelName = {
-    Category: 'Category',
-    Order: 'Order',
-    OrderItems: 'OrderItems',
-    Product: 'Product',
-    Profile: 'Profile',
-    User: 'User'
+    Category: "Category",
+    Order: "Order",
+    OrderItems: "OrderItems",
+    Product: "Product",
+    Profile: "Profile",
+    User: "User"
 };
 /**
  * Enums
  */
 export const TransactionIsolationLevel = runtime.makeStrictEnum({
-    ReadUncommitted: 'ReadUncommitted',
-    ReadCommitted: 'ReadCommitted',
-    RepeatableRead: 'RepeatableRead',
-    Serializable: 'Serializable'
+    ReadUncommitted: "ReadUncommitted",
+    ReadCommitted: "ReadCommitted",
+    RepeatableRead: "RepeatableRead",
+    Serializable: "Serializable"
 });
 export const CategoryScalarFieldEnum = {
-    id: 'id',
-    name: 'name',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt'
+    id: "id",
+    name: "name",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
+    deletedAt: "deletedAt"
 };
 export const OrderScalarFieldEnum = {
-    id: 'id',
-    userId: 'userId',
-    total: 'total',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt'
+    id: "id",
+    userId: "userId",
+    total: "total",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
+    deletedAt: "deletedAt"
 };
 export const OrderItemsScalarFieldEnum = {
-    id: 'id',
-    orderId: 'orderId',
-    productId: 'productId',
-    quantity: 'quantity',
-    priceAtPurchase: 'priceAtPurchase',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt'
+    id: "id",
+    orderId: "orderId",
+    productId: "productId",
+    quantity: "quantity",
+    priceAtPurchase: "priceAtPurchase",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
+    deletedAt: "deletedAt"
 };
 export const ProductScalarFieldEnum = {
-    id: 'id',
-    name: 'name',
-    description: 'description',
-    price: 'price',
-    stock: 'stock',
-    image: 'image',
-    categoryId: 'categoryId',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt'
+    id: "id",
+    name: "name",
+    description: "description",
+    price: "price",
+    stock: "stock",
+    image: "image",
+    categoryId: "categoryId",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
+    deletedAt: "deletedAt"
 };
 export const ProfileScalarFieldEnum = {
-    id: 'id',
-    name: 'name',
-    gender: 'gender',
-    address: 'address',
-    profile_picture_url: 'profile_picture_url',
-    user_id: 'user_id',
-    deletedAt: 'deletedAt',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    id: "id",
+    name: "name",
+    gender: "gender",
+    address: "address",
+    profile_picture_url: "profile_picture_url",
+    user_id: "user_id",
+    deletedAt: "deletedAt",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt"
 };
 export const UserScalarFieldEnum = {
-    id: 'id',
-    username: 'username',
-    email: 'email',
-    password_hash: 'password_hash',
-    role: 'role'
+    id: "id",
+    username: "username",
+    email: "email",
+    password_hash: "password_hash",
+    role: "role"
 };
 export const SortOrder = {
-    asc: 'asc',
-    desc: 'desc'
+    asc: "asc",
+    desc: "desc"
 };
 export const QueryMode = {
-    default: 'default',
-    insensitive: 'insensitive'
+    default: "default",
+    insensitive: "insensitive"
 };
 export const NullsOrder = {
-    first: 'first',
-    last: 'last'
+    first: "first",
+    last: "last"
 };
 export const defineExtension = runtime.Extensions.defineExtension;
 //# sourceMappingURL=prismaNamespace.js.map

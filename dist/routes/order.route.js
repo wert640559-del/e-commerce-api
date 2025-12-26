@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { OrderController } from "../controllers/order.controller";
-import { OrderService } from "../services/order.service";
-import { OrderRepository } from "../repositories/order.repository";
-import prismaInstance from "../database";
-import { authenticate } from "../middlewares/auth.middleware"; // Asumsi nama middleware auth Anda
+import { OrderController } from "../controllers/order.controller.js";
+import { OrderService } from "../services/order.service.js";
+import { OrderRepository } from "../repositories/order.repository.js";
+import prismaInstance from "../database.js";
+import { authenticate } from "../middlewares/auth.middleware.js"; // Asumsi nama middleware auth Anda
 const router = Router();
 /**
  * @swagger
@@ -118,10 +118,10 @@ const service = new OrderService(orderRepo);
 const controller = new OrderController(service);
 // Routes
 // Note: Gunakan authenticate middleware untuk proteksi checkout
-router.get('/', (req, res) => controller.list(req, res));
-router.get('/stats/overview', (req, res) => controller.getStats(req, res));
-router.get('/:id', (req, res) => controller.getById(req, res));
-router.post('/checkout', authenticate, (req, res) => controller.checkout(req, res));
-router.delete('/:id', authenticate, (req, res) => controller.remove(req, res));
+router.get("/", (req, res) => controller.list(req, res));
+router.get("/stats/overview", (req, res) => controller.getStats(req, res));
+router.get("/:id", (req, res) => controller.getById(req, res));
+router.post("/checkout", authenticate, (req, res) => controller.checkout(req, res));
+router.delete("/:id", authenticate, (req, res) => controller.remove(req, res));
 export default router;
 //# sourceMappingURL=order.route.js.map

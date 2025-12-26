@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { createProductValidation, getProductByIdValidation } from "../middlewares/product.validation";
-import { ProductController } from "../controllers/product.controller";
-import { validate } from "../utils/validator";
-import { authenticate } from "../middlewares/auth.middleware";
-import { upload } from "../middlewares/upload.middleware";
-import { ProductRepository } from "../repositories/product.repository";
-import prismaInstance from "../database";
-import { ProductService } from "../services/product.service";
+import { createProductValidation, getProductByIdValidation } from "../middlewares/product.validation.js";
+import { ProductController } from "../controllers/product.controller.js";
+import { validate } from "../utils/validator.js";
+import { authenticate } from "../middlewares/auth.middleware.js";
+import { upload } from "../middlewares/upload.middleware.js";
+import { ProductRepository } from "../repositories/product.repository.js";
+import prismaInstance from "../database.js";
+import { ProductService } from "../services/product.service.js";
 const router = Router();
 /**
  * @swagger
@@ -239,11 +239,11 @@ const router = Router();
 const repo = new ProductRepository(prismaInstance);
 const service = new ProductService(repo);
 const controller = new ProductController(service);
-router.get('/', controller.list);
-router.get('/stats', controller.getStats); // letakkan stats ini di atas getById
-router.get('/:id', validate(getProductByIdValidation), controller.getById);
-router.post('/', authenticate, upload.single('image'), validate(createProductValidation), controller.create);
-router.put('/:id', authenticate, upload.single('image'), controller.update);
-router.delete('/:id', authenticate, controller.delete);
+router.get("/", controller.list);
+router.get("/stats", controller.getStats); // letakkan stats ini di atas getById
+router.get("/:id", validate(getProductByIdValidation), controller.getById);
+router.post("/", authenticate, upload.single("image"), validate(createProductValidation), controller.create);
+router.put("/:id", authenticate, upload.single("image"), controller.update);
+router.delete("/:id", authenticate, controller.delete);
 export default router;
 //# sourceMappingURL=product.route.js.map

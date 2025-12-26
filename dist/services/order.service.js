@@ -1,5 +1,5 @@
-import prismaInstance from "../database";
-import { Decimal } from "../generated/runtime/client";
+import prismaInstance from "../database.js";
+import { Decimal } from "../generated/runtime/client.js";
 export class OrderService {
     orderRepo;
     constructor(orderRepo) {

@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { createCategoryValidation, getCategoryByIdValidation, updateCategoryValidation } from "../middlewares/category.validation";
-import { CategoryController } from "../controllers/category.controller";
-import { CategoryRepository } from "../repositories/category.repository";
-import { CategoryService } from "../services/category.service";
-import { validate } from "../utils/validator";
-import { authenticate } from "../middlewares/auth.middleware"; // Sesuaikan jika kategori butuh auth
-import prismaInstance from "../database";
+import { createCategoryValidation, getCategoryByIdValidation, updateCategoryValidation } from "../middlewares/category.validation.js";
+import { CategoryController } from "../controllers/category.controller.js";
+import { CategoryRepository } from "../repositories/category.repository.js";
+import { CategoryService } from "../services/category.service.js";
+import { validate } from "../utils/validator.js";
+import { authenticate } from "../middlewares/auth.middleware.js"; // Sesuaikan jika kategori butuh auth
+import prismaInstance from "../database.js";
 const router = Router();
 /**
  * @swagger
@@ -148,10 +148,10 @@ const repo = new CategoryRepository(prismaInstance);
 const service = new CategoryService(repo);
 const controller = new CategoryController(service);
 // Route Definitions
-router.get('/', (req, res) => controller.list(req, res));
-router.get('/:id', validate(getCategoryByIdValidation), (req, res) => controller.getById(req, res));
-router.post('/', authenticate, validate(createCategoryValidation), (req, res) => controller.create(req, res));
-router.put('/:id', authenticate, validate(updateCategoryValidation), (req, res) => controller.update(req, res));
-router.delete('/:id', authenticate, validate(getCategoryByIdValidation), (req, res) => controller.remove(req, res));
+router.get("/", (req, res) => controller.list(req, res));
+router.get("/:id", validate(getCategoryByIdValidation), (req, res) => controller.getById(req, res));
+router.post("/", authenticate, validate(createCategoryValidation), (req, res) => controller.create(req, res));
+router.put("/:id", authenticate, validate(updateCategoryValidation), (req, res) => controller.update(req, res));
+router.delete("/:id", authenticate, validate(getCategoryByIdValidation), (req, res) => controller.remove(req, res));
 export default router;
 //# sourceMappingURL=category.route.js.map

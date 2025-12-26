@@ -1,11 +1,11 @@
-import type { Prisma, Order, OrderItems } from "../generated/client";
-import type { IOrderRepository } from "../repositories/order.repository";
+import type { Prisma, Order, OrderItems } from "../generated/client.js";
+import type { IOrderRepository } from "../repositories/order.repository.js";
 interface FindAllParams {
     page: number;
     limit: number;
     userId?: number | undefined;
     sortBy?: string;
-    sortOrder?: 'asc' | 'desc';
+    sortOrder?: "asc" | "desc";
 }
 interface OrderListResponse {
     orders: Order[];

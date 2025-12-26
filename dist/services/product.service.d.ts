@@ -1,5 +1,5 @@
-import type { Category, Prisma, Product } from "../generated/client";
-import type { IProductRepository } from "../repositories/product.repository";
+import type { Category, Prisma, Product } from "../generated/client.js";
+import type { IProductRepository } from "../repositories/product.repository.js";
 interface FindAllParams {
     page: number;
     limit: number;
@@ -9,7 +9,7 @@ interface FindAllParams {
         min_price?: number;
     };
     sortBy?: string;
-    sortOrder?: 'asc' | 'desc';
+    sortOrder?: "asc" | "desc";
 }
 interface ProductListResponse {
     products: Product[];

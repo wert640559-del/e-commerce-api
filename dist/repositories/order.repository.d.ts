@@ -1,4 +1,4 @@
-import type { Prisma, PrismaClient, Order, OrderItems } from "../generated/client";
+import type { Prisma, PrismaClient, Order, OrderItems } from "../generated/client.js";
 export interface IOrderRepository {
     create(tx: Prisma.TransactionClient, data: Prisma.OrderCreateInput): Promise<Order>;
     createItem(tx: Prisma.TransactionClient, data: Prisma.OrderItemsCreateInput): Promise<OrderItems>;

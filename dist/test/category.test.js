@@ -1,55 +1,55 @@
-import app from "../app";
+import app from "../app.js";
 import request from "supertest";
-import config from "../utils/env";
-import jwt from 'jsonwebtoken';
-describe('GET /api/category', () => {
-    it('Should return 200 and list of category', async () => {
-        const res = await request(app).get('/api/categories');
+import config from "../utils/env.js";
+import jwt from "jsonwebtoken";
+describe("GET /api/category", () => {
+    it("Should return 200 and list of category", async () => {
+        const res = await request(app).get("/api/categories");
         expect(res.statusCode).toEqual(200);
         expect(res.body.success).toBe(true);
         expect(Array.isArray(res.body.data.categories)).toBe(true);
     });
 });
-describe('GET /api/category/:id', () => {
-    it('Should return 200 and category that has been found', async () => {
+describe("GET /api/category/:id", () => {
+    it("Should return 200 and category that has been found", async () => {
         const res = await request(app)
-            .get('/api/categories/10');
+            .get("/api/categories/10");
         expect(res.statusCode).toEqual(200);
         expect(res.body.success).toBe(true);
     });
 });
-describe('POST /api/category', () => {
-    const token = jwt.sign({ id: 1, role: 'ADMIN' }, config.JWT_SECRET);
-    it('Should return 401 if no token provided', async () => {
+describe("POST /api/category", () => {
+    const token = jwt.sign({ id: 1, role: "ADMIN" }, config.JWT_SECRET);
+    it("Should return 401 if no token provided", async () => {
         const res = await request(app)
-            .post('/api/categories')
+            .post("/api/categories")
             .send({ name: `New Category ${Date.now()}` });
         expect(res.statusCode).toEqual(401);
         expect(res.body.success).toBe(false);
     });
-    it('Should return 200 and category that has been created', async () => {
+    it("Should return 200 and category that has been created", async () => {
         const res = await request(app)
-            .post('/api/categories')
+            .post("/api/categories")
             .send({ name: `New Category ${Date.now()}` })
-            .set('Authorization', `Bearer ${token}`);
+            .set("Authorization", `Bearer ${token}`);
         expect(res.statusCode).toEqual(201);
         expect(res.body.success).toBe(true);
     });
 });
-describe('PUT /api/category/:id', () => {
-    const token = jwt.sign({ id: 1, role: 'ADMIN' }, config.JWT_SECRET);
-    it('Should return 401 if no token provided', async () => {
+describe("PUT /api/category/:id", () => {
+    const token = jwt.sign({ id: 1, role: "ADMIN" }, config.JWT_SECRET);
+    it("Should return 401 if no token provided", async () => {
         const res = await request(app)
-            .put('/api/categories/10')
+            .put("/api/categories/10")
             .send({ name: `New Category ${Date.now()}` });
         expect(res.statusCode).toEqual(401);
         expect(res.body.success).toBe(false);
     });
-    it('Should return 200 and category that has been updated', async () => {
+    it("Should return 200 and category that has been updated", async () => {
         const res = await request(app)
-            .put('/api/categories/10')
+            .put("/api/categories/10")
             .send({ name: `New Category ${Date.now()}` })
-            .set('Authorization', `Bearer ${token}`);
+            .set("Authorization", `Bearer ${token}`);
         expect(res.statusCode).toEqual(200);
         expect(res.body.success).toBe(true);
     });

@@ -1,4 +1,4 @@
-import type { Prisma, PrismaClient, Profile, User } from "../generated/client";
+import type { Prisma, PrismaClient, Profile, User } from "../generated/client.js";
 export interface IProfileRepository {
     list(skip: number, take: number, where: Prisma.ProfileWhereInput, orderBy: Prisma.ProfileOrderByWithRelationInput): Promise<Profile[]>;
     countAll(where: Prisma.ProfileWhereInput): Promise<number>;

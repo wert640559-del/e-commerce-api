@@ -1,4 +1,4 @@
-import type { User, Prisma, PrismaClient } from "../generated/client";
+import type { User, Prisma, PrismaClient } from "../generated/client.js";
 export interface IAuthRepository {
     findUserByEmail(email: string): Promise<User | null>;
     createUser(data: Prisma.UserCreateInput): Promise<User>;

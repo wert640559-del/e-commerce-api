@@ -1,4 +1,4 @@
-import { successResponse } from "../utils/response";
+import { successResponse } from "../utils/response.js";
 export class ProductController {
     productService;
     constructor(productService) {
@@ -15,7 +15,7 @@ export class ProductController {
         const limit = Number(req.query.limit) || 10;
         const search = req.query.search;
         const sortBy = req.query.sortBy;
-        const sortOrder = req.query.sortOrder || 'desc';
+        const sortOrder = req.query.sortOrder || "desc";
         const result = await this.productService.list({
             page,
             limit,

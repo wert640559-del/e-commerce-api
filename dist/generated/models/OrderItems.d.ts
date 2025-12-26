@@ -1,5 +1,5 @@
 import type * as runtime from "@prisma/client/runtime/client";
-import type * as Prisma from "../internal/prismaNamespace";
+import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model OrderItems
  *
@@ -163,7 +163,7 @@ export type OrderItemsAggregateArgs<ExtArgs extends runtime.Types.Extensions.Int
     _max?: OrderItemsMaxAggregateInputType;
 };
 export type GetOrderItemsAggregateType<T extends OrderItemsAggregateArgs> = {
-    [P in keyof T & keyof AggregateOrderItems]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateOrderItems[P]> : Prisma.GetScalarType<T[P], AggregateOrderItems[P]>;
+    [P in keyof T & keyof AggregateOrderItems]: P extends "_count" | "count" ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateOrderItems[P]> : Prisma.GetScalarType<T[P], AggregateOrderItems[P]>;
 };
 export type OrderItemsGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     where?: Prisma.OrderItemsWhereInput;
@@ -193,8 +193,8 @@ export type OrderItemsGroupByOutputType = {
     _min: OrderItemsMinAggregateOutputType | null;
     _max: OrderItemsMaxAggregateOutputType | null;
 };
-type GetOrderItemsGroupByPayload<T extends OrderItemsGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<OrderItemsGroupByOutputType, T['by']> & {
-    [P in ((keyof T) & (keyof OrderItemsGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], OrderItemsGroupByOutputType[P]> : Prisma.GetScalarType<T[P], OrderItemsGroupByOutputType[P]>;
+type GetOrderItemsGroupByPayload<T extends OrderItemsGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<OrderItemsGroupByOutputType, T["by"]> & {
+    [P in ((keyof T) & (keyof OrderItemsGroupByOutputType))]: P extends "_count" ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], OrderItemsGroupByOutputType[P]> : Prisma.GetScalarType<T[P], OrderItemsGroupByOutputType[P]>;
 }>>;
 export type OrderItemsWhereInput = {
     AND?: Prisma.OrderItemsWhereInput | Prisma.OrderItemsWhereInput[];
@@ -703,14 +703,14 @@ export type $OrderItemsPayload<ExtArgs extends runtime.Types.Extensions.Internal
     composites: {};
 };
 export type OrderItemsGetPayload<S extends boolean | null | undefined | OrderItemsDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$OrderItemsPayload, S>;
-export type OrderItemsCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<OrderItemsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type OrderItemsCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<OrderItemsFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
     select?: OrderItemsCountAggregateInputType | true;
 };
 export interface OrderItemsDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
     [K: symbol]: {
-        types: Prisma.TypeMap<ExtArgs>['model']['OrderItems'];
+        types: Prisma.TypeMap<ExtArgs>["model"]["OrderItems"];
         meta: {
-            name: 'OrderItems';
+            name: "OrderItems";
         };
     };
     /**
@@ -953,7 +953,7 @@ export interface OrderItemsDelegate<ExtArgs extends runtime.Types.Extensions.Int
      *   }
      * })
     **/
-    count<T extends OrderItemsCountArgs>(args?: Prisma.Subset<T, OrderItemsCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], OrderItemsCountAggregateOutputType> : number>;
+    count<T extends OrderItemsCountArgs>(args?: Prisma.Subset<T, OrderItemsCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<"select", any> ? T["select"] extends true ? number : Prisma.GetScalarType<T["select"], OrderItemsCountAggregateOutputType> : number>;
     /**
      * Allows you to perform aggregations operations on a OrderItems.
      * Note, that providing `undefined` is treated as the value not being there.
@@ -997,22 +997,22 @@ export interface OrderItemsDelegate<ExtArgs extends runtime.Types.Extensions.Int
      * })
      *
     **/
-    groupBy<T extends OrderItemsGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
-        orderBy: OrderItemsGroupByArgs['orderBy'];
+    groupBy<T extends OrderItemsGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<"skip", Prisma.Keys<T>>, Prisma.Extends<"take", Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: OrderItemsGroupByArgs["orderBy"];
     } : {
-        orderBy?: OrderItemsGroupByArgs['orderBy'];
-    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        orderBy?: OrderItemsGroupByArgs["orderBy"];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T["orderBy"]>>>, ByFields extends Prisma.MaybeTupleToUnion<T["by"]>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T["having"]>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T["by"] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
         [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
             Error,
-            'Field ',
+            "Field ",
             P,
             ` in "having" needs to be provided in "by"`
         ];
-    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+    }[HavingFields] : "take" extends Prisma.Keys<T> ? "orderBy" extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
         [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
-    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+    }[OrderFields] : "Error: If you provide \"take\", you also need to provide \"orderBy\"" : "skip" extends Prisma.Keys<T> ? "orderBy" extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
         [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
-    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+    }[OrderFields] : "Error: If you provide \"skip\", you also need to provide \"orderBy\"" : ByValid extends Prisma.True ? {} : {
         [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
     }[OrderFields]>(args: Prisma.SubsetIntersection<T, OrderItemsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrderItemsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
     /**
@@ -1055,14 +1055,14 @@ export interface Prisma__OrderItemsClient<T, Null = never, ExtArgs extends runti
  * Fields of the OrderItems model
  */
 export interface OrderItemsFieldRefs {
-    readonly id: Prisma.FieldRef<"OrderItems", 'Int'>;
-    readonly orderId: Prisma.FieldRef<"OrderItems", 'Int'>;
-    readonly productId: Prisma.FieldRef<"OrderItems", 'Int'>;
-    readonly quantity: Prisma.FieldRef<"OrderItems", 'Int'>;
-    readonly priceAtPurchase: Prisma.FieldRef<"OrderItems", 'Decimal'>;
-    readonly createdAt: Prisma.FieldRef<"OrderItems", 'DateTime'>;
-    readonly updatedAt: Prisma.FieldRef<"OrderItems", 'DateTime'>;
-    readonly deletedAt: Prisma.FieldRef<"OrderItems", 'DateTime'>;
+    readonly id: Prisma.FieldRef<"OrderItems", "Int">;
+    readonly orderId: Prisma.FieldRef<"OrderItems", "Int">;
+    readonly productId: Prisma.FieldRef<"OrderItems", "Int">;
+    readonly quantity: Prisma.FieldRef<"OrderItems", "Int">;
+    readonly priceAtPurchase: Prisma.FieldRef<"OrderItems", "Decimal">;
+    readonly createdAt: Prisma.FieldRef<"OrderItems", "DateTime">;
+    readonly updatedAt: Prisma.FieldRef<"OrderItems", "DateTime">;
+    readonly deletedAt: Prisma.FieldRef<"OrderItems", "DateTime">;
 }
 /**
  * OrderItems findUnique

@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import type { IProfileService } from "../services/profile.service";
+import type { IProfileService } from "../services/profile.service.js";
 export interface IProfileController {
     getMe(req: Request, res: Response): Promise<any>;
     create(req: Request, res: Response): Promise<any>;

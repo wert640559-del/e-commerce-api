@@ -1,5 +1,5 @@
-import type { User, Prisma } from "../generated/client";
-import type { IAuthRepository } from "../repositories/auth.repository";
+import type { User, Prisma } from "../generated/client.js";
+import type { IAuthRepository } from "../repositories/auth.repository.js";
 interface AuthResponse {
     user: Omit<User, "password_hash">;
     token: string;

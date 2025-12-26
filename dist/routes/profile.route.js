@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { ProfileController } from "../controllers/profile.controller";
-import { ProfileService } from "../services/profile.service";
-import { ProfileRepository } from "../repositories/profile.repository";
-import { upload } from "../middlewares/upload.middleware";
-import { authenticate } from "../middlewares/auth.middleware";
-import { validate } from "../utils/validator";
-import { getProfileByIdValidation } from "../middlewares/profile.validation";
-import prismaInstance from "../database";
+import { ProfileController } from "../controllers/profile.controller.js";
+import { ProfileService } from "../services/profile.service.js";
+import { ProfileRepository } from "../repositories/profile.repository.js";
+import { upload } from "../middlewares/upload.middleware.js";
+import { authenticate } from "../middlewares/auth.middleware.js";
+import { validate } from "../utils/validator.js";
+import { getProfileByIdValidation } from "../middlewares/profile.validation.js";
+import prismaInstance from "../database.js";
 const router = Router();
 // Inisialisasi sesuai request
 const repo = new ProfileRepository(prismaInstance);
@@ -134,7 +134,7 @@ const controller = new ProfileController(service);
 router.get("/me", authenticate, controller.getMe);
 router.get("/", authenticate, controller.list);
 router.get("/stats", authenticate, controller.getStats);
-router.post('/me', authenticate, upload.single('image'), controller.create);
+router.post("/me", authenticate, upload.single("image"), controller.create);
 router.delete("/:id", authenticate, validate(getProfileByIdValidation), controller.remove);
 export default router;
 //# sourceMappingURL=profile.route.js.map

@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { AuthController } from "../controllers/auth.controller";
-import { AuthRepository } from "../repositories/auth.repository";
-import { AuthService } from "../services/auth.service";
-import { validate } from "../utils/validator";
-import { loginValidation, registerValidation } from "../middlewares/auth.validation";
-import prismaInstance from "../database";
+import { AuthController } from "../controllers/auth.controller.js";
+import { AuthRepository } from "../repositories/auth.repository.js";
+import { AuthService } from "../services/auth.service.js";
+import { validate } from "../utils/validator.js";
+import { loginValidation, registerValidation } from "../middlewares/auth.validation.js";
+import prismaInstance from "../database.js";
 const router = Router();
 /**
  * @swagger
@@ -115,7 +115,7 @@ const repo = new AuthRepository(prismaInstance);
 const service = new AuthService(repo);
 const controller = new AuthController(service);
 // Tanpa authenticate (karena ini pintu masuk), tapi pakai validate 
-router.post('/login', validate(loginValidation), (req, res) => controller.login(req, res));
-router.post('/register', validate(registerValidation), (req, res) => controller.register(req, res));
+router.post("/login", validate(loginValidation), (req, res) => controller.login(req, res));
+router.post("/register", validate(registerValidation), (req, res) => controller.register(req, res));
 export default router;
 //# sourceMappingURL=auth.route.js.map

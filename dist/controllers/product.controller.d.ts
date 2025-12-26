@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import type { IProductService } from "../services/product.service";
+import type { IProductService } from "../services/product.service.js";
 export interface IProductController {
     list(req: Request, res: Response): Promise<void>;
     getById(req: Request, res: Response): Promise<void>;

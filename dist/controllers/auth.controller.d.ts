@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import type { IAuthService } from "../services/auth.service";
+import type { IAuthService } from "../services/auth.service.js";
 export interface IAuthController {
     register(req: Request, res: Response): Promise<void>;
     login(req: Request, res: Response): Promise<void>;

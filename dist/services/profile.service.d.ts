@@ -1,5 +1,5 @@
-import type { Prisma, Profile, User } from "../generated/client";
-import type { IProfileRepository } from "../repositories/profile.repository";
+import type { Prisma, Profile, User } from "../generated/client.js";
+import type { IProfileRepository } from "../repositories/profile.repository.js";
 interface FindAllParams {
     page: number;
     limit: number;
@@ -8,7 +8,7 @@ interface FindAllParams {
         gender?: string;
     };
     sortBy?: string;
-    sortOrder?: 'asc' | 'desc';
+    sortOrder?: "asc" | "desc";
 }
 interface ProfileListResponse {
     profiles: Profile[];

@@ -1,4 +1,4 @@
-import { successResponse } from "../utils/response";
+import { successResponse } from "../utils/response.js";
 export class OrderController {
     orderService;
     constructor(orderService) {
@@ -15,7 +15,7 @@ export class OrderController {
         const limit = Number(req.query.limit) || 10;
         const userId = req.query.userId ? Number(req.query.userId) : undefined;
         const sortBy = req.query.sortBy;
-        const sortOrder = req.query.sortOrder || 'desc';
+        const sortOrder = req.query.sortOrder || "desc";
         const result = await this.orderService.list({
             page,
             limit,

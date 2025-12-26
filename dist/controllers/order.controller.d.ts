@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import type { IOrderService } from "../services/order.service";
+import type { IOrderService } from "../services/order.service.js";
 export interface IOrderController {
     list(req: Request, res: Response): Promise<void>;
     getById(req: Request, res: Response): Promise<void>;

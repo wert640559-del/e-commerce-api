@@ -1,6 +1,6 @@
 import * as bcrypt from "bcrypt";
-import config from '../utils/env';
-import jwt from 'jsonwebtoken';
+import config from "../utils/env.js";
+import jwt from "jsonwebtoken";
 export class AuthService {
     authRepo;
     constructor(authRepo) {
@@ -37,7 +37,7 @@ export class AuthService {
         }
         // 3. Generate JWT Token
         const token = jwt.sign({ id: user.id, role: user.role }, config.JWT_SECRET, // Gunakan dari config
-        { expiresIn: '1d' });
+        { expiresIn: "1d" });
         // 4. Return user (tanpa password) dan token
         const { password_hash, ...userWithoutPassword } = user;
         return {

@@ -1,7 +1,7 @@
-import { PrismaClient } from "./generated/client";
+import { PrismaClient } from "./generated/client.js";
 import { Pool } from "pg";
-import { PrismaPg } from "../node_modules/@prisma/adapter-pg/dist/index";
-import config from './utils/env';
+import config from "./utils/env.js";
+import { PrismaPg } from "@prisma/adapter-pg";
 let prisma;
 export const getPrisma = () => {
     if (!prisma) {
