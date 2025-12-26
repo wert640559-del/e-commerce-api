@@ -2,7 +2,7 @@ import { Router } from "express";
 import { OrderController } from "../controllers/order.controller";
 import { OrderService } from "../services/order.service";
 import { OrderRepository } from "../repositories/order.repository";
-import prismaInstance from "../prisma";
+import prismaInstance from "../database";
 import { authenticate } from "../middlewares/auth.middleware"; // Asumsi nama middleware auth Anda
 
 const router = Router();

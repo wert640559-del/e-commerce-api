@@ -48,9 +48,7 @@ export class ProfileController implements IProfileController {
                 name: String(name),
                 gender: String(gender),
                 address: String(address),
-                user: {
-                    connect: { id: Number(userId) }
-                },
+                user_id: Number(userId),
                 ...(file && { profile_picture_url: `/public/uploads/${file.filename}` })
             };
 

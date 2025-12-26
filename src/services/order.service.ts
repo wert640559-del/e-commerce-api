@@ -1,6 +1,6 @@
 import type { Prisma, Order, OrderItems } from "../generated/client"
 import type { IOrderRepository } from "../repositories/order.repository"
-import prismaInstance from "../prisma"
+import prismaInstance from "../database"
 import { Decimal } from "../generated/runtime/client"
 
 interface FindAllParams {

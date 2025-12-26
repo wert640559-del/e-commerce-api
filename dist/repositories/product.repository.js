@@ -1,0 +1,84 @@
+export class ProductRepository {
+    prisma;
+    constructor(prisma) {
+        this.prisma = prisma;
+    }
+    async list(skip, take, where, orderBy) {
+        return await this.prisma.product.findMany({
+            skip,
+            take,
+            where,
+            orderBy,
+            include: { category: true }
+        });
+    }
+    async countAll(where) {
+        return await this.prisma.product.count({ where });
+    }
+    async findById(id) {
+        return await this.prisma.product.findUnique({
+            where: {
+                id,
+                deletedAt: null,
+            },
+            include: {
+                category: true
+            }
+        });
+    }
+    async create(data) {
+        return await this.prisma.product.create({ data });
+    }
+    async update(id, data) {
+        return await this.prisma.product.update({
+            where: {
+                id: id,
+                deletedAt: null
+            },
+            data: data
+        });
+    }
+    async softDelete(id) {
+        return await this.prisma.product.update({
+            where: {
+                id,
+                deletedAt: null,
+            },
+            data: {
+                deletedAt: new Date()
+            }
+        });
+    }
+    async findComplex(categoryName, maxPrice) {
+        return await this.prisma.product.findMany({
+            where: {
+                OR: [
+                    {
+                        AND: [
+                            { category: { name: categoryName } },
+                            { price: { lt: maxPrice } }
+                        ]
+                    },
+                    { category: { name: 'Aksesoris' } }
+                ]
+            }
+        });
+    }
+    async getStats() {
+        return await this.prisma.product.aggregate({
+            _count: { id: true }, // Total jumlah produk
+            _avg: { price: true }, // Rata-rata harga
+            _sum: { stock: true }, // Total stok semua barang
+            _min: { price: true }, // Harga termurah
+            _max: { price: true } // Harga termahal
+        });
+    }
+    async getProductsByCategoryStats() {
+        return await this.prisma.product.groupBy({
+            by: ['categoryId'],
+            _count: { id: true },
+            _avg: { price: true }
+        });
+    }
+}
+//# sourceMappingURL=product.repository.js.map

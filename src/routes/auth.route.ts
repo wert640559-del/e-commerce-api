@@ -4,7 +4,7 @@ import { AuthRepository } from "../repositories/auth.repository";
 import { AuthService } from "../services/auth.service";
 import { validate } from "../utils/validator";
 import { loginValidation, registerValidation } from "../middlewares/auth.validation";
-import prismaInstance from "../prisma";
+import prismaInstance from "../database";
 
 const router = Router();
 

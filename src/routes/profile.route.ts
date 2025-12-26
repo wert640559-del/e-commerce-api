@@ -8,7 +8,7 @@ import { validate } from "../utils/validator";
 import { 
     getProfileByIdValidation 
 } from "../middlewares/profile.validation";
-import prismaInstance from "../prisma";
+import prismaInstance from "../database";
 
 const router = Router();
 

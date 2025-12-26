@@ -5,7 +5,7 @@ import { CategoryRepository } from "../repositories/category.repository"
 import { CategoryService } from "../services/category.service"
 import { validate } from "../utils/validator"
 import { authenticate } from "../middlewares/auth.middleware" // Sesuaikan jika kategori butuh auth
-import prismaInstance from "../prisma"
+import prismaInstance from "../database"
 
 const router = Router()
 

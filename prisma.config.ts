@@ -2,6 +2,7 @@
 // npm install --save-dev prisma dotenv
 import "dotenv/config";
 import { defineConfig, env } from "prisma/config";
+import config from "./src/utils/env";
 
 export default defineConfig({
   schema: "src/prisma",
@@ -9,6 +10,6 @@ export default defineConfig({
     path: "src/prisma/migrations",
   },
   datasource: {
-    url: env("DATABASE_URL"),
+    url: config.DATABASE_URL!,
   },
 });
