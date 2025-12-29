@@ -1,4 +1,4 @@
-import config from './env'
+// import config from './env'
 import swaggerJSDoc from 'swagger-jsdoc'
 
 const options: swaggerJSDoc.Options = {
@@ -14,7 +14,7 @@ const options: swaggerJSDoc.Options = {
         },
         servers: [
             {
-                url: `http://${config.HOST}:${config.PORT}/api`,
+                url: `https://e-commerce-api-production-ce14.up.railway.app/api`,
                 description: 'Development server'
             }
         ],
